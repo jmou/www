@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Scroll-driven animations</title>
+    <style>
+      body {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      iframe {
+        width: 100%;
+        height: 100vh;
+        border: none;
+      }
+      main {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 0 1rem;
+      }
+    </style>
+    <base href="https://static.mou.fo/2026/scroll/">
+  </head>
+  <body>
+    <iframe name=scroll src="https://static.mou.fo/2026/scroll/"></iframe>
+    <main>
+
+<h1>Scroll-driven animations</h1>
+
+<p>This page was coded without any JavaScript, just HTML and CSS. Note
+<a href="https://caniuse.com/wf-scroll-driven-animations">this feature came out in 2025</a>
+and does not yet work in Firefox.
+
+<p>While I think "scrollytelling" is overused, I like that it gives the viewer tactility and agency. It's less cinema, more flipbook.
+
+<p>I create the logical scenes, each corresponding to an HTML &lt;section&gt;,
+and then decide how to compose them. Almost everything is measured in
+<a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units">vh units</a>,
+so a typical scene might be 100-200vh (1-2 viewport heights). Sometimes scenes
+overlap, for example the <a target=scroll href=#timber>wagging robot and lightning bolt burst</a>.
+
+<p>The <a target=scroll href=#snowcouple>melting snow couple</a> is a time lapse
+from playing with cheap
+<a href="https://lastminuteengineers.com/getting-started-with-esp32-cam/">ESP32 microcontrollers</a>.
+I used ImageMagick to montage them into a <a href=snowcouple.jpg>long vertical sprite sheet</a>.
+The sprite sheet is set as a background image whose position is animated in
+discrete steps by frame height, like pulling a film strip across a shutter.
+The timing of rotating the video was choreographed with the snowman falling over
+by trial and error.
+
+<p>The <a target=scroll href="#burst">lightning bolts</a> are essentially a rudimentary
+<a href="https://www.joshwcomeau.com/email/2025-09-25-secret-ingredient/">particle effect</a>.
+Each bolt is animated by the same underlying animation, but with distinct index
+values to create
+<a href="https://dev.to/mimafogeus2/randomness-and-random-numbers-in-css-2gfl">pseudo randomness</a>.
+I've never implemented a PRNG in CSS before! It's hacky but gets the desired effect.
+Calculations use
+<a href="https://www.joshwcomeau.com/blog/whimsical-animations/#particles-3">polar coordinates</a>
+to get the radial directionality.
+
+<p>CSS animations are tied to a timeline, which usually is the time since the page is loaded. Animated properties are interpolated according to the current position in the timeline. Scroll-driven animations work exactly the same way but they replace the time-based timeline with a scroll position timeline.
+
+<p>If you'd like to learn more about scroll-driven animations, I definitely recommend
+<a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICM3ttukz9x5LCNOHfWBVnn">this video series by the Chrome team</a>.
+
+    </main>
+  </body>
+</html>
