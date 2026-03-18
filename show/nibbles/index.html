@@ -18,9 +18,17 @@
         max-width: 95vw;
       }
       @media (width > 500px) {
-        img {
+        img:not(.hero) {
           float: right;
           margin-left: 1em;
+        }
+      }
+      .hero {
+        margin: 1em auto;
+      }
+      @media (prefers-color-scheme: dark) {
+        .hero {
+          filter: invert(1);
         }
       }
     </style>
@@ -28,9 +36,11 @@
   </head>
   <body>
 
+<!-- TODO screnshot/video -->
 <!-- TODO bunny hopping -->
+<!-- TODO CRT filter -->
 
-<h1>NIBBLES.BAS</h1>
+<img src=hero.png class=hero alt="NIBBLES.BAS">
 
 <h2>Start</h2>
 
